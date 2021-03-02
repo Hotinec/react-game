@@ -1,0 +1,31 @@
+.cell {
+  height: 25px;
+  width: 25px;
+  background-color: lightgray;
+  border-width: 0.2rem;
+  border-style: solid;
+  border-color: white grey grey white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  font-size: .8rem;
+
+  &:active {
+    border-color: grey white white grey;
+  }
+
+  &--open {
+    border-color: grey;
+    border-style: solid;
+    border-width: 1px 0px 0px 1px;
+    font-size: 1.1rem;
+  }
+}
+
+.win {
+  background-color:rgba(40, 184, 27, 0.5);
+}
+.lose {
+  background-color:rgba(255, 117, 117, 0.5);
+}

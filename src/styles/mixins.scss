@@ -1,0 +1,14 @@
+@mixin btn {
+  background-color: #ccc;
+  border-width: .2rem;
+  border-style: solid;
+  border-color: white grey grey white;
+  box-sizing: border-box;
+  margin: 0;
+  cursor: pointer;
+  outline: none;
+
+  &:active {
+    border-color: grey white white grey;
+  }
+}

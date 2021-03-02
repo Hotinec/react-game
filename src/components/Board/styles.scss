@@ -1,0 +1,17 @@
+.board {
+  border:.2rem #ccc inset;
+  margin-bottom: .5rem;
+  // box-sizing: border-box;
+  width: 100%;
+  
+  overflow: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.row {
+  display: flex;
+}

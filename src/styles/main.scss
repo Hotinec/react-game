@@ -1,0 +1,33 @@
+@font-face {
+  font-family: 'DSEG7-Classic';
+  src: url('../../node_modules/dseg/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff2') format('woff2'),
+  url('../../node_modules/dseg/fonts/DSEG7-Classic/DSEG7Classic-Bold.woff') format('woff'),
+  url('../../node_modules/dseg/fonts/DSEG7-Classic/DSEG7Classic-Bold.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  background-color: #333;
+  margin: 0px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+}
+
+.logo {
+  width: 80px;
+  padding: .2rem;
+}
