@@ -8,11 +8,12 @@ import { BOARD } from '../../constants';
 import { set } from '../../sevices/storageService';
 import './styles.scss';
 
-const Footer: React.FC<{dataTime: number}> = ({dataTime}) => {
+const Footer: React.FC = () => {
   const history = useHistory();
   const dispatch = useDispatch();
   const gameState = useTypedSelector((state) => state.game);
   const viewState = useTypedSelector((state) => state.view);
+  const time = useTypedSelector((state) => state.view.time);
 
   const clickHandler = (data: {size: number; mines: number}) => {
     dispatch(createBoard(data));
@@ -22,7 +23,7 @@ const Footer: React.FC<{dataTime: number}> = ({dataTime}) => {
   const saveState = () => {
     set('game', gameState);
     set('view', viewState);
-    set('time', dataTime);
+    set('time', time);
   };
 
   const statisticsClickHandler = () => {

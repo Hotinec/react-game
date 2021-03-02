@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useState, useEffect} from 'react';
+import React, { useEffect} from 'react';
 import { useTypedSelector } from '../../redux/useTypedSelector';
 import { useDispatch } from 'react-redux';
 import { setState as setGameState } from '../../redux/actions/game';
@@ -8,8 +8,8 @@ import { BoardState, IViewState } from '../../constants';
 import Header from '../../components/Header';
 import Board from '../../components/Board';
 import Footer from '../../components/Footer';
+import Volume from '../../components/Volume';
 import { get, set } from '../../sevices/storageService';
-import gameSound from '../../assets/audio/bensound-psychedelic.mp3';
 import winSound from '../../assets/audio/success.mp3';
 import loseSound from '../../assets/audio/sad.mp3';
 import logo from '../../assets/images/rs_school_js_logo.svg';
@@ -18,7 +18,7 @@ import './styles.scss';
 const Game: React.FC = () => {
   const dispatch = useDispatch();
   const status = useTypedSelector((state) => state.game.status);
-  const [dataTime, setDataTime] = useState(0);
+  const time = useTypedSelector((state) => state.view.time);
 
   const saveResult = (status: string) => {
     let results = get('results');
@@ -27,7 +27,7 @@ const Game: React.FC = () => {
     results.push({
       date: new Date(),
       status: status,
-      time: dataTime,
+      time: time,
     });
 
     set('results', results);
@@ -60,21 +60,17 @@ const Game: React.FC = () => {
       dispatch(setGameState(gameState));
       dispatch(setViewState(viewState));
     }
-
-    let audio: HTMLAudioElement = new Audio(gameSound);
-    audio.loop = true;
-    audio.volume = 0.4;
-    audio.play();
-
-    return () => {audio.muted = true};
   }, []);
 
   return (
     <div className="game">
-      <Header setDataTime={setDataTime}/>
+      <Header />
       <Board />
-      <Footer dataTime={dataTime} />
-      <img src={logo} className="logo" alt="logo"/>
+      <Footer />
+      <div className="game__logo-volume">
+        <a href=""><img src={logo} className="logo" alt="logo"/></a>
+        <Volume />
+      </div>
     </div>
   );
 }

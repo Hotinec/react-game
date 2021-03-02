@@ -1,6 +1,11 @@
-
 import IAction from '../actions/IAction';
-import { SET_MINES, ADD_FLAG, REMOVE_FLAG, SET_VIEW_STATE } from '../actions/view';
+import {
+  SET_MINES,
+  ADD_FLAG,
+  REMOVE_FLAG,
+  SET_VIEW_STATE,
+  SET_TIME
+} from '../actions/view';
 import { BOARD, IViewState } from '../../constants';
 
 const initialState: IViewState = {
@@ -26,6 +31,12 @@ const size = (state = initialState, action: IAction): IViewState => {
       return {
         ...state,
         mines: state.mines + 1
+      }
+
+    case SET_TIME:
+      return {
+        ...state,
+        time: action.payload,
       }
 
     case SET_VIEW_STATE:
