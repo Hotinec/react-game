@@ -1,0 +1,50 @@
+@import '../../styles/mixins.scss';
+
+.statistics__link {
+  @include btn;
+  text-decoration: none;
+  margin-bottom: .5rem;
+  padding: .2rem;
+}
+
+.statistics__table {
+  width: 60%;
+  margin: 0 auto;
+  color: rgb(46, 46, 46);
+
+  table {
+    width: 100%;
+    table-layout: fixed;
+    margin: 0 auto;
+  }
+
+  .table__header {
+    display: block;
+    background-color: rgb(255,255,255);
+    }
+
+  .table__content {
+    height: 70vh;
+    overflow-x: auto;
+    margin-top: 0;
+    border: 0.1rem solid rgb(255,255,255);
+    background-color: rgb(243,243,243);
+  }
+
+  th {
+    padding: 2rem 1.5rem;
+    text-align: center;
+    font-weight: 500;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+  }
+
+  td {
+    padding: 1.5rem;
+    text-align: center;
+    vertical-align:middle;
+    font-weight: 300;
+    font-size: 1.2rem;
+    border-bottom: 0.1rem solid rgb(255,255,255);
+  }
+}

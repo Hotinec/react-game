@@ -1,0 +1,26 @@
+@import '../../styles/mixins.scss';
+
+.footer {
+  border:.2rem #ccc inset;
+  display: flex;
+
+  &__button {
+    @include btn;
+    padding: .2rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--controls {
+      height: 50%;
+    }
+  }
+
+  &__board-size, &__controls  {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+}
