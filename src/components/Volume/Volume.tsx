@@ -7,14 +7,13 @@ import './styles.scss';
 
 const Volume: React.FC = () => {
   const [sound, setSound] = useState(false);
-  const [volume, setVolume] = useState(40);
 
   let gameAudio: HTMLAudioElement = new Audio(gameSound);
 
   useEffect(() => {
     if (sound) {
       gameAudio.loop = true;
-      gameAudio.volume = volume / 100;
+      gameAudio.volume = 0.4;
       gameAudio.play();
     }
 
